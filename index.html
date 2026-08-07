@@ -2,135 +2,524 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Faya Place</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Faya Place — Guest Guide</title>
+<meta name="description" content="Faya Place, Davao City. Your digital guest guide — Wi-Fi, house rules, local recommendations, and everything you need for your stay.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-
 </head>
-
 <body>
 
-<nav>
-
-<div class="logo">
-Faya Place
+<!-- Loading transition -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-mark">faya<span class="dot">.</span></div>
 </div>
 
-<div class="menu">
-☰
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo" aria-label="Faya Place — home">
+      <img src="assets/logo-black.png" alt="Faya Place">
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#connect">Connect</a>
+      <a href="#your-stay">Stay</a>
+      <a href="#kitchen">Kitchen</a>
+      <a href="#bathroom">Bath</a>
+      <a href="#explore">Explore</a>
+      <a href="#emergency">Help</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Fullscreen mobile menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <nav aria-label="Mobile">
+    <a href="#connect" class="mm-link"><span>01</span>Connect</a>
+    <a href="#your-stay" class="mm-link"><span>02</span>Your Stay</a>
+    <a href="#kitchen" class="mm-link"><span>03</span>Kitchen</a>
+    <a href="#bathroom" class="mm-link"><span>04</span>Bathroom</a>
+    <a href="#explore" class="mm-link"><span>05</span>Explore Davao</a>
+    <a href="#food" class="mm-link"><span>06</span>Food Nearby</a>
+    <a href="#emergency" class="mm-link"><span>07</span>Emergency</a>
+    <a href="#checkout" class="mm-link"><span>08</span>Checkout</a>
+    <a href="#faya-clothing" class="mm-link"><span>09</span>Faya Clothing Co.</a>
+  </nav>
+  <div class="mm-footer">Amani Grand Condominium · Unit 825 · Davao City</div>
 </div>
 
-</nav>
+<main id="top">
 
-<section class="hero">
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-text reveal">
+      <p class="eyebrow">Welcome home.</p>
+      <h1>Faya Place</h1>
+      <p class="hero-tagline">Stay Strange.</p>
+      <div class="hero-rule"></div>
+      <p class="hero-copy">New city.<br>New stories.<br>Welcome home.</p>
+      <a href="#everything" class="btn btn-primary">Begin Your Stay</a>
+    </div>
+    <div class="hero-image-wrap reveal">
+      <img src="assets/hero.jpg" alt="Interior of Faya Place, a studio unit in Davao City with a queen bed, sofa, and kitchenette" loading="eager">
+    </div>
+  </section>
 
-<div class="overlay">
+  <!-- ============ EVERYTHING YOU NEED ============ -->
+  <section class="section cards-section" id="everything">
+    <div class="section-head reveal">
+      <p class="eyebrow">Guide</p>
+      <h2>Everything you need</h2>
+    </div>
+    <div class="card-grid">
 
-<p class="eyebrow">
-WELCOME HOME.
-</p>
+      <a href="#connect" class="feature-card reveal">
+        <svg class="icon" viewBox="0 0 48 48" fill="none"><path d="M8 20c9-9 23-9 32 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M15 27c5-5 13-5 18 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M21 34c1.5-1.5 4.5-1.5 6 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="24" cy="39" r="1.6" fill="currentColor"/></svg>
+        <h3>Connect</h3>
+        <p>Wi-Fi, Netflix, and everything you need to get online.</p>
+        <span class="card-arrow">→</span>
+      </a>
 
-<h1>
-Faya Place
-</h1>
+      <a href="#your-stay" class="feature-card reveal">
+        <svg class="icon" viewBox="0 0 48 48" fill="none"><path d="M8 22 24 9l16 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 20v17h24V20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 37v-9h8v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Your Stay</h3>
+        <p>Location, sleeping arrangements, quiet hours, and house rules.</p>
+        <span class="card-arrow">→</span>
+      </a>
 
-<p class="subtitle">
-Stay Strange.
-</p>
+      <a href="#kitchen" class="feature-card reveal">
+        <svg class="icon" viewBox="0 0 48 48" fill="none"><path d="M14 8v14M14 8c-2.5 0-4.5 2.5-4.5 7s2 7 4.5 7M14 8c2.5 0 4.5 2.5 4.5 7s-2 7-4.5 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M14 22v18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M34 8v13a4 4 0 0 1-4 4v0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M34 8v32M30 8v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <h3>Kitchen</h3>
+        <p>Microwave, fridge, rice cooker, and electric kettle.</p>
+        <span class="card-arrow">→</span>
+      </a>
 
-<p class="intro">
+      <a href="#bathroom" class="feature-card reveal">
+        <svg class="icon" viewBox="0 0 48 48" fill="none"><path d="M24 6c-5 6-8 11-8 15a8 8 0 0 0 16 0c0-4-3-9-8-15Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M20 24c0 2.2 1.8 4 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M11 40h26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <h3>Bathroom</h3>
+        <p>Bidet, shampoo, body wash, and hand wash.</p>
+        <span class="card-arrow">→</span>
+      </a>
 
-New city.<br>
-New stories.<br>
-Welcome home.
+      <a href="#explore" class="feature-card reveal">
+        <svg class="icon" viewBox="0 0 48 48" fill="none"><path d="M24 6c-7 0-12 5.2-12 12.5C12 27 24 42 24 42s12-15 12-23.5C36 11.2 31 6 24 6Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="24" cy="18.5" r="4.5" stroke="currentColor" stroke-width="2"/></svg>
+        <h3>Explore</h3>
+        <p>Places to visit and hidden gems around Davao.</p>
+        <span class="card-arrow">→</span>
+      </a>
 
-</p>
+      <a href="#emergency" class="feature-card reveal">
+        <svg class="icon" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="24" r="7" stroke="currentColor" stroke-width="2"/><path d="M13 13l6.5 6.5M35 13l-6.5 6.5M13 35l6.5-6.5M35 35l-6.5-6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <h3>Help</h3>
+        <p>Emergency contacts, host info, and building security.</p>
+        <span class="card-arrow">→</span>
+      </a>
 
-<a href="#cards" class="button">
+    </div>
+  </section>
 
-Begin Your Stay →
+  <!-- ============ CONNECT ============ -->
+  <section class="section" id="connect">
+    <div class="section-head reveal">
+      <p class="eyebrow">01 — Get online</p>
+      <h2>Connect</h2>
+    </div>
 
-</a>
+    <div class="panel-grid reveal">
+      <div class="panel panel-wide">
+        <h3>Wi-Fi</h3>
+        <p class="muted">Please refer to the framed A4 Guest Guide inside the unit for:</p>
+        <ul class="dot-list">
+          <li>Wi-Fi SSID</li>
+          <li>Wi-Fi Password</li>
+        </ul>
+      </div>
 
-</div>
+      <div class="panel">
+        <h3>Netflix</h3>
+        <ol class="step-list">
+          <li>Open Netflix</li>
+          <li>Select Guest Profile</li>
+          <li>Please sign out before checkout</li>
+        </ol>
+      </div>
 
-</section>
+      <div class="panel">
+        <h3>Smart TV</h3>
+        <p class="muted">The Smart TV comes preloaded with streaming apps. Use the home button on the remote to browse everything available, and select your input if you'd like to connect your own device.</p>
+      </div>
 
-<section id="cards">
+      <div class="panel panel-wide host-panel">
+        <h3>Your Hosts</h3>
+        <div class="host-row">
+          <div class="host">
+            <span class="host-name">Mark</span>
+          </div>
+          <div class="host">
+            <span class="host-name">Rina</span>
+          </div>
+          <a href="tel:" class="host-phone">
+            <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M6.5 3h3l1.5 4.5-2.2 1.8a13 13 0 0 0 6 6l1.8-2.2L21 15v3a2 2 0 0 1-2 2C10.7 20 4 13.3 4 5a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <span>[Add phone number]</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="card">
-📶
-<h2>Connect</h2>
-<p>Wi-Fi, Netflix & Contact</p>
-</div>
+  <!-- ============ YOUR STAY ============ -->
+  <section class="section alt" id="your-stay">
+    <div class="section-head reveal">
+      <p class="eyebrow">02 — Make yourself at home</p>
+      <h2>Your Stay</h2>
+    </div>
 
-<div class="card">
-🏠
-<h2>House</h2>
-<p>Rules & Checkout</p>
-</div>
+    <div class="panel-grid reveal">
+      <div class="panel panel-wide">
+        <h3>Location</h3>
+        <p class="address">
+          Faya Place<br>
+          Amani Grand Condominium<br>
+          Building B (Yellow Building)<br>
+          Unit 825, 8th Floor<br>
+          Davao City, Philippines
+        </p>
+        <a href="https://maps.google.com/?q=Amani+Grand+Condominium+Davao" target="_blank" rel="noopener" class="btn btn-ghost btn-small">Open in Google Maps</a>
+      </div>
 
-<div class="card">
-🍽️
-<h2>Fuel</h2>
-<p>Kitchen & Bathroom</p>
-</div>
+      <div class="panel">
+        <h3>Sleeping Arrangement</h3>
+        <ul class="dot-list">
+          <li>1 Queen Bed</li>
+          <li>1 Sofa Bed</li>
+        </ul>
+      </div>
 
-<div class="card">
-☕
-<h2>Eat</h2>
-<p>Restaurants & Grab</p>
-</div>
+      <div class="panel">
+        <h3>Occupancy</h3>
+        <div class="stat-row">
+          <div><span class="stat-num">2</span><span class="stat-label">Ideal for</span></div>
+          <div><span class="stat-num">3</span><span class="stat-label">Comfortable</span></div>
+          <div><span class="stat-num">4</span><span class="stat-label">Maximum</span></div>
+        </div>
+      </div>
 
-<div class="card">
-📍
-<h2>Explore</h2>
-<p>Davao Recommendations</p>
-</div>
+      <div class="panel">
+        <h3>Self Check-in</h3>
+        <p class="muted">Guests will receive the key safe combination through a private message before arrival.</p>
+      </div>
 
-<div class="card">
-🆘
-<h2>Help</h2>
-<p>Emergency & Host</p>
-</div>
+      <div class="panel">
+        <h3>Quiet Hours</h3>
+        <p class="quiet-hours">10:00 PM – 7:00 AM</p>
+        <p class="muted">Please respect other residents of the condominium.</p>
+      </div>
 
-</section>
+      <div class="panel panel-wide">
+        <h3>House Rules</h3>
+        <ul class="rule-list">
+          <li>No smoking</li>
+          <li>No parties</li>
+          <li>No excessive noise</li>
+          <li>Please treat the home with care</li>
+          <li>Turn off lights and air conditioning when leaving</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-<footer>
+  <!-- ============ KITCHEN ============ -->
+  <section class="section" id="kitchen">
+    <div class="section-head reveal">
+      <p class="eyebrow">03 — Fuel up</p>
+      <h2>Kitchen</h2>
+    </div>
+    <div class="amenity-grid reveal">
+      <div class="amenity-card">
+        <svg class="icon" viewBox="0 0 48 48" fill="none"><rect x="7" y="12" width="34" height="24" rx="3" stroke="currentColor" stroke-width="2"/><rect x="12" y="17" width="18" height="14" rx="1.5" stroke="currentColor" stroke-width="2"/><circle cx="35" cy="24" r="1.6" fill="currentColor"/></svg>
+        <h3>Microwave</h3>
+        <p>Ready to reheat leftovers or warm up a late-night snack.</p>
+      </div>
+      <div class="amenity-card">
+        <svg class="icon" viewBox="0 0 48 48" fill="none"><rect x="12" y="6" width="24" height="36" rx="3" stroke="currentColor" stroke-width="2"/><path d="M12 20h24" stroke="currentColor" stroke-width="2"/><path d="M17 10v6M17 24v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <h3>Refrigerator</h3>
+        <p>Keep your groceries and leftovers fresh throughout your stay.</p>
+      </div>
+      <div class="amenity-card">
+        <svg class="icon" viewBox="0 0 48 48" fill="none"><rect x="10" y="18" width="28" height="20" rx="3" stroke="currentColor" stroke-width="2"/><path d="M15 18v-3a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="28" r="1.6" fill="currentColor"/></svg>
+        <h3>Rice Cooker</h3>
+        <p>A fresh pot of rice, ready whenever you need it.</p>
+      </div>
+      <div class="amenity-card">
+        <svg class="icon" viewBox="0 0 48 48" fill="none"><path d="M14 20h16a4 4 0 0 1 4 4v6a8 8 0 0 1-8 8h-8a4 4 0 0 1-4-4V20Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M34 24h2a3 3 0 0 1 0 6h-2" stroke="currentColor" stroke-width="2"/><path d="M19 20c0-3 3-3 3-6M25 20c0-3 3-3 3-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <h3>Electric Kettle</h3>
+        <p>For your morning coffee or evening tea.</p>
+      </div>
+    </div>
+  </section>
 
-<p>
+  <!-- ============ BATHROOM ============ -->
+  <section class="section alt" id="bathroom">
+    <div class="section-head reveal">
+      <p class="eyebrow">04 — Freshen up</p>
+      <h2>Bathroom</h2>
+    </div>
+    <div class="amenity-grid reveal">
+      <div class="amenity-card">
+        <svg class="icon" viewBox="0 0 48 48" fill="none"><path d="M9 27h30v3a10 10 0 0 1-10 10h-10A10 10 0 0 1 9 30v-3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 27v-4a10 10 0 0 1 20 0v4" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="8" r="2" stroke="currentColor" stroke-width="2"/></svg>
+        <h3>Bidet</h3>
+        <p>Installed for a clean, comfortable finish.</p>
+      </div>
+      <div class="amenity-card">
+        <svg class="icon" viewBox="0 0 48 48" fill="none"><path d="M19 8h10l1 5c3 2 4 5 4 9v14a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4V22c0-4 1-7 4-9l1-5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M19 8V5h10v3" stroke="currentColor" stroke-width="2"/></svg>
+        <h3>Shampoo</h3>
+        <p>Provided in the unit for your convenience.</p>
+      </div>
+      <div class="amenity-card">
+        <svg class="icon" viewBox="0 0 48 48" fill="none"><path d="M20 8h8l1 5c3 2 4 5 4 9v14a4 4 0 0 1-4 4H19a4 4 0 0 1-4-4V22c0-4 1-7 4-9l1-5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="24" cy="26" r="3" stroke="currentColor" stroke-width="2"/></svg>
+        <h3>Body Wash</h3>
+        <p>A gentle formula, stocked and ready to use.</p>
+      </div>
+      <div class="amenity-card">
+        <svg class="icon" viewBox="0 0 48 48" fill="none"><path d="M17 6h9a5 5 0 0 1 5 5v3H17V6Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 14h17l-2 26a3 3 0 0 1-3 3H19a3 3 0 0 1-3-3l-2-26Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        <h3>Hand Wash</h3>
+        <p>At the sink, refilled between every stay.</p>
+      </div>
+    </div>
+  </section>
 
-Everything you seek is seeking you.
+  <!-- ============ EXPLORE DAVAO ============ -->
+  <section class="section" id="explore">
+    <div class="section-head reveal">
+      <p class="eyebrow">05 — Go outside</p>
+      <h2>Explore Davao</h2>
+    </div>
+    <div class="place-grid reveal">
 
-</p>
+      <div class="place-card">
+        <div class="place-photo ph-1"></div>
+        <div class="place-body">
+          <h3>Faya Place</h3>
+          <p>Home base — Amani Grand Condominium, Building B.</p>
+          <a href="https://maps.google.com/?q=Amani+Grand+Condominium+Davao" target="_blank" rel="noopener" class="place-link">Google Maps →</a>
+        </div>
+      </div>
 
-<h3>
+      <div class="place-card">
+        <div class="place-photo ph-2"></div>
+        <div class="place-body">
+          <h3>Davao International Airport</h3>
+          <p>Approximately 10–15 minutes away.</p>
+          <a href="https://maps.google.com/?q=Francisco+Bangoy+International+Airport" target="_blank" rel="noopener" class="place-link">Google Maps →</a>
+        </div>
+      </div>
 
-Faya Place
+      <div class="place-card">
+        <div class="place-photo ph-3"></div>
+        <div class="place-body">
+          <h3>SM Lanang Premier</h3>
+          <p>A premier mall with shopping, dining, and a cinema.</p>
+          <a href="https://maps.google.com/?q=SM+Lanang+Premier" target="_blank" rel="noopener" class="place-link">Google Maps →</a>
+        </div>
+      </div>
 
-</h3>
+      <div class="place-card">
+        <div class="place-photo ph-4"></div>
+        <div class="place-body">
+          <h3>Abreeza Mall</h3>
+          <p>Open-air mall with a wide mix of shops and restaurants.</p>
+          <a href="https://maps.google.com/?q=Abreeza+Mall+Davao" target="_blank" rel="noopener" class="place-link">Google Maps →</a>
+        </div>
+      </div>
 
-<p>
+      <div class="place-card">
+        <div class="place-photo ph-5"></div>
+        <div class="place-body">
+          <h3>Gaisano Mall of Davao</h3>
+          <p>A local favorite for everyday shopping and food.</p>
+          <a href="https://maps.google.com/?q=Gaisano+Mall+of+Davao" target="_blank" rel="noopener" class="place-link">Google Maps →</a>
+        </div>
+      </div>
 
-by Faya Clothing Co.
+      <div class="place-card">
+        <div class="place-photo ph-6"></div>
+        <div class="place-body">
+          <h3>DGT Davao</h3>
+          <p>Worth a visit while you're in the city.</p>
+          <a href="https://maps.google.com/?q=DGT+Davao" target="_blank" rel="noopener" class="place-link">Google Maps →</a>
+        </div>
+      </div>
 
-</p>
+      <div class="place-card">
+        <div class="place-photo ph-7"></div>
+        <div class="place-body">
+          <h3>Feral Studios</h3>
+          <p>Home of Faya Clothing Co.</p>
+          <a href="https://maps.google.com/?q=Feral+Studios+Davao" target="_blank" rel="noopener" class="place-link">Google Maps →</a>
+        </div>
+      </div>
 
-<div class="social">
+      <div class="place-card">
+        <div class="place-photo ph-8"></div>
+        <div class="place-body">
+          <h3>Samal Island</h3>
+          <p>White-sand beaches, a short ferry ride from the city.</p>
+          <a href="https://maps.google.com/?q=Samal+Island" target="_blank" rel="noopener" class="place-link">Google Maps →</a>
+        </div>
+      </div>
 
-@fayaclothingco
+    </div>
+  </section>
 
-</div>
+  <!-- ============ FOOD NEARBY ============ -->
+  <section class="section alt" id="food">
+    <div class="section-head reveal">
+      <p class="eyebrow">06 — Eat well</p>
+      <h2>Food Nearby</h2>
+    </div>
+    <div class="food-grid reveal">
 
+      <div class="food-card">
+        <h3>Breakfast</h3>
+        <p>Cafés and diners near the condo to start your day right.</p>
+        <a href="https://maps.google.com/?q=breakfast+near+Amani+Grand+Condominium+Davao" target="_blank" rel="noopener" class="place-link">Find nearby →</a>
+      </div>
+
+      <div class="food-card">
+        <h3>Coffee</h3>
+        <p>Coffee shops within easy walking distance.</p>
+        <a href="https://maps.google.com/?q=coffee+shops+near+Amani+Grand+Condominium+Davao" target="_blank" rel="noopener" class="place-link">Find nearby →</a>
+      </div>
+
+      <div class="food-card">
+        <h3>Local Food</h3>
+        <p>Authentic Davaoeño dishes worth seeking out.</p>
+        <a href="https://maps.google.com/?q=local+Filipino+restaurants+near+Amani+Grand+Condominium+Davao" target="_blank" rel="noopener" class="place-link">Find nearby →</a>
+      </div>
+
+      <div class="food-card">
+        <h3>Dinner</h3>
+        <p>Sit-down spots for a proper evening meal.</p>
+        <a href="https://maps.google.com/?q=dinner+restaurants+near+Amani+Grand+Condominium+Davao" target="_blank" rel="noopener" class="place-link">Find nearby →</a>
+      </div>
+
+      <div class="food-card">
+        <h3>Grab Delivery</h3>
+        <p>Prefer to stay in? Order through the Grab app.</p>
+        <a href="https://maps.google.com/?q=restaurants+near+Amani+Grand+Condominium+Davao" target="_blank" rel="noopener" class="place-link">Find nearby →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ EMERGENCY ============ -->
+  <section class="section emergency" id="emergency">
+    <div class="section-head reveal">
+      <p class="eyebrow">07 — Just in case</p>
+      <h2>Emergency</h2>
+    </div>
+
+    <div class="emergency-hero reveal">
+      <span class="emergency-number">911</span>
+      <p>911 is the official emergency response number within Davao City.</p>
+    </div>
+
+    <div class="panel-grid reveal">
+      <div class="panel">
+        <h3>Building Security</h3>
+        <a href="tel:" class="host-phone"><span>[Add phone number]</span></a>
+      </div>
+      <div class="panel">
+        <h3>Hosts — Mark &amp; Rina</h3>
+        <a href="tel:" class="host-phone"><span>[Add phone number]</span></a>
+      </div>
+      <div class="panel">
+        <h3>Nearest Hospital</h3>
+        <a href="https://maps.google.com/?q=hospital+near+Amani+Grand+Condominium+Davao" target="_blank" rel="noopener" class="btn btn-ghost btn-small">Open in Google Maps</a>
+      </div>
+      <div class="panel">
+        <h3>Nearest Pharmacy</h3>
+        <a href="https://maps.google.com/?q=pharmacy+near+Amani+Grand+Condominium+Davao" target="_blank" rel="noopener" class="btn btn-ghost btn-small">Open in Google Maps</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SMOKE-FREE DAVAO ============ -->
+  <section class="section smokefree" id="smokefree">
+    <div class="smokefree-inner reveal">
+      <p class="eyebrow">Good to know</p>
+      <h2>Smoke-Free Davao</h2>
+      <p>Davao City is known nationwide for the strict implementation of its smoke-free ordinance. Smoking is prohibited in public places, including malls, restaurants, transport terminals, and common areas of residential buildings.</p>
+      <p>This is part of what keeps the city's air clean and its public spaces comfortable for everyone. We appreciate your understanding and cooperation during your stay.</p>
+    </div>
+  </section>
+
+  <!-- ============ CHECKOUT ============ -->
+  <section class="section" id="checkout">
+    <div class="section-head reveal">
+      <p class="eyebrow">08 — Before you go</p>
+      <h2>Checkout</h2>
+    </div>
+
+    <div class="checklist-wrap reveal">
+      <ul class="checklist" id="checklist">
+        <li><label><input type="checkbox"><span class="box"></span><span class="label-text">Turn off lights</span></label></li>
+        <li><label><input type="checkbox"><span class="box"></span><span class="label-text">Turn off air conditioning</span></label></li>
+        <li><label><input type="checkbox"><span class="box"></span><span class="label-text">Dispose of trash properly</span></label></li>
+        <li><label><input type="checkbox"><span class="box"></span><span class="label-text">Return the keys to the key safe</span></label></li>
+        <li><label><input type="checkbox"><span class="box"></span><span class="label-text">Lock the door</span></label></li>
+        <li><label><input type="checkbox"><span class="box"></span><span class="label-text">Double-check personal belongings</span></label></li>
+        <li><label><input type="checkbox"><span class="box"></span><span class="label-text">Leave us a review</span></label></li>
+      </ul>
+      <div class="checklist-progress">
+        <div class="checklist-progress-bar" id="checklistBar"></div>
+      </div>
+    </div>
+
+    <div class="checkout-message reveal">
+      <p>Thank you for staying at Faya Place.</p>
+      <p>We hope to welcome you back again soon.</p>
+      <p class="safe-travels">Safe travels.</p>
+    </div>
+  </section>
+
+  <!-- ============ FAYA CLOTHING CO. ============ -->
+  <section class="section clothing" id="faya-clothing">
+    <div class="clothing-inner reveal">
+      <img src="assets/faya-clothing-logo.png" alt="Faya Clothing Co." class="clothing-logo">
+      <p class="eyebrow">The story behind Faya Place</p>
+      <p class="clothing-copy">Faya Place is proudly created by the team behind Faya Clothing Co., an independent clothing brand based in Davao City.</p>
+      <div class="social-row">
+        <a href="https://www.facebook.com/fayaclothingco" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/fayaclothingco" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@fayaclothingco" target="_blank" rel="noopener">TikTok</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <p class="footer-eyebrow">Designed with intention.</p>
+  <img src="assets/logo-black.png" alt="Faya Place" class="footer-logo">
+  <p class="footer-sub">By Faya Clothing Co.</p>
+  <div class="footer-links">
+    <a href="#connect">Connect</a>
+    <a href="#your-stay">Your Stay</a>
+    <a href="#explore">Explore</a>
+    <a href="#emergency">Emergency</a>
+  </div>
+  <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
 </footer>
 
+<script src="script.js"></script>
 </body>
-
 </html>
