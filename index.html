@@ -3,123 +3,175 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Faya Place — Guest Guide</title>
-<meta name="description" content="Faya Place, Davao City. Your digital guest guide — Wi-Fi, house rules, local recommendations, and everything you need for your stay.">
+<title>Faya Place — Digital Guest Guide</title>
+<meta name="description" content="Faya Place — a digital guest guide for your stay in Davao City. Stay Strange.">
 <link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="apple-touch-icon" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Loading transition -->
-<div class="loader" id="loader" aria-hidden="true">
-  <div class="loader-mark">faya<span class="dot">.</span></div>
-</div>
-
-<!-- ============ NAV ============ -->
-<header class="nav" id="nav">
-  <div class="nav-inner">
-    <a href="#top" class="nav-logo" aria-label="Faya Place — home">
-      <img src="assets/logo-black.png" alt="Faya Place">
+<!-- ============ TOP NAV ============ -->
+<header class="topbar" id="topbar">
+  <div class="topbar__inner">
+    <a href="#top" class="brand" aria-label="Faya Place home">
+      <img src="assets/logo-black.png" alt="Faya Place" class="brand__mark">
     </a>
-    <nav class="nav-links" aria-label="Primary">
+
+    <nav class="nav-desktop" aria-label="Primary">
       <a href="#connect">Connect</a>
-      <a href="#your-stay">Stay</a>
-      <a href="#kitchen">Kitchen</a>
-      <a href="#bathroom">Bath</a>
+      <a href="#house">House</a>
+      <a href="#fuel">Fuel</a>
+      <a href="#eat">Eat</a>
       <a href="#explore">Explore</a>
-      <a href="#emergency">Help</a>
+      <a href="#help">Help</a>
     </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
-<!-- Fullscreen mobile menu -->
-<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-  <nav aria-label="Mobile">
-    <a href="#connect" class="mm-link"><span>01</span>Connect</a>
-    <a href="#your-stay" class="mm-link"><span>02</span>Your Stay</a>
-    <a href="#kitchen" class="mm-link"><span>03</span>Kitchen</a>
-    <a href="#bathroom" class="mm-link"><span>04</span>Bathroom</a>
-    <a href="#explore" class="mm-link"><span>05</span>Explore Davao</a>
-    <a href="#food" class="mm-link"><span>06</span>Food Nearby</a>
-    <a href="#emergency" class="mm-link"><span>07</span>Emergency</a>
-    <a href="#checkout" class="mm-link"><span>08</span>Checkout</a>
-    <a href="#faya-clothing" class="mm-link"><span>09</span>Faya Clothing Co.</a>
-  </nav>
-  <div class="mm-footer">Amani Grand Condominium · Unit 825 · Davao City</div>
-</div>
+<!-- ============ MOBILE NAV DRAWER ============ -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile" hidden>
+  <a href="#connect" data-nav>Connect</a>
+  <a href="#house" data-nav>House</a>
+  <a href="#fuel" data-nav>Fuel</a>
+  <a href="#eat" data-nav>Eat</a>
+  <a href="#explore" data-nav>Explore</a>
+  <a href="#help" data-nav>Help</a>
+  <a href="#checklist" data-nav>Guest Checklist</a>
+  <a href="#checkout" data-nav>Check Out</a>
+</nav>
+<div class="mobile-nav-scrim" id="mobileNavScrim" hidden></div>
 
 <main id="top">
 
   <!-- ============ HERO ============ -->
   <section class="hero">
-    <div class="hero-text reveal">
-      <p class="eyebrow">Welcome home.</p>
-      <h1>Faya Place</h1>
-      <p class="hero-tagline">Stay Strange.</p>
-      <div class="hero-rule"></div>
-      <p class="hero-copy">New city.<br>New stories.<br>Welcome home.</p>
-      <a href="#everything" class="btn btn-primary">Begin Your Stay</a>
+    <div class="hero__media">
+      <img src="assets/hero.jpg" alt="Interior of Faya Place, a studio condo in Davao City" class="hero__img">
+      <div class="hero__scrim"></div>
     </div>
-    <div class="hero-image-wrap reveal">
-      <img src="assets/hero.jpg" alt="Interior of Faya Place, a studio unit in Davao City with a queen bed, sofa, and kitchenette" loading="eager">
+    <div class="hero__content">
+      <p class="eyebrow eyebrow--light">Welcome Home.</p>
+      <h1 class="hero__title">Faya Place</h1>
+      <p class="hero__tagline">Stay Strange.</p>
+      <p class="hero__sub">New city.<br>New stories.<br>Welcome home.</p>
+      <a href="#guide" class="btn btn--light">Enter the Field Manual <span aria-hidden="true">→</span></a>
     </div>
   </section>
 
-  <!-- ============ EVERYTHING YOU NEED ============ -->
-  <section class="section cards-section" id="everything">
-    <div class="section-head reveal">
-      <p class="eyebrow">Guide</p>
-      <h2>Everything you need</h2>
+  <!-- ============ PHOTO GALLERY ============ -->
+  <section class="gallery" id="gallery" aria-label="Photo gallery">
+    <div class="section-head">
+      <p class="eyebrow">A Look Inside</p>
+      <h2>The Space</h2>
     </div>
+
+    <div class="gallery__scroller" id="galleryScroller">
+      <button class="gallery__slide" type="button" data-index="0">
+        <img src="assets/gallery/gallery-01.jpg" alt="Faya Place gallery photo 1" loading="lazy" onerror="this.closest('.gallery__slide').classList.add('gallery__slide--empty')">
+      </button>
+      <button class="gallery__slide" type="button" data-index="1">
+        <img src="assets/gallery/gallery-02.jpg" alt="Faya Place gallery photo 2" loading="lazy" onerror="this.closest('.gallery__slide').classList.add('gallery__slide--empty')">
+      </button>
+      <button class="gallery__slide" type="button" data-index="2">
+        <img src="assets/gallery/gallery-03.jpg" alt="Faya Place gallery photo 3" loading="lazy" onerror="this.closest('.gallery__slide').classList.add('gallery__slide--empty')">
+      </button>
+      <button class="gallery__slide" type="button" data-index="3">
+        <img src="assets/gallery/gallery-04.jpg" alt="Faya Place gallery photo 4" loading="lazy" onerror="this.closest('.gallery__slide').classList.add('gallery__slide--empty')">
+      </button>
+      <button class="gallery__slide" type="button" data-index="4">
+        <img src="assets/gallery/gallery-05.jpg" alt="Faya Place gallery photo 5" loading="lazy" onerror="this.closest('.gallery__slide').classList.add('gallery__slide--empty')">
+      </button>
+      <button class="gallery__slide" type="button" data-index="5">
+        <img src="assets/gallery/gallery-06.jpg" alt="Faya Place gallery photo 6" loading="lazy" onerror="this.closest('.gallery__slide').classList.add('gallery__slide--empty')">
+      </button>
+      <button class="gallery__slide" type="button" data-index="6">
+        <img src="assets/gallery/gallery-07.jpg" alt="Faya Place gallery photo 7" loading="lazy" onerror="this.closest('.gallery__slide').classList.add('gallery__slide--empty')">
+      </button>
+    </div>
+    <div class="gallery__dots" id="galleryDots" role="tablist" aria-label="Gallery pagination"></div>
+  </section>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Close photo viewer">✕</button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Previous photo">‹</button>
+    <img src="" alt="" class="lightbox__img" id="lightboxImg">
+    <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Next photo">›</button>
+  </div>
+
+  <!-- ============ MAIN CATEGORY CARDS ============ -->
+  <section class="guide" id="guide">
+    <div class="section-head">
+      <p class="eyebrow">The Field Manual</p>
+      <h2>Everything You Need</h2>
+    </div>
+
     <div class="card-grid">
 
-      <a href="#connect" class="feature-card reveal">
-        <svg class="icon" viewBox="0 0 48 48" fill="none"><path d="M8 20c9-9 23-9 32 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M15 27c5-5 13-5 18 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M21 34c1.5-1.5 4.5-1.5 6 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="24" cy="39" r="1.6" fill="currentColor"/></svg>
+      <a href="#connect" class="cat-card">
+        <span class="cat-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8.5c5.5-5.3 14.5-5.3 20 0M5.5 12.2c3.7-3.6 9.3-3.6 13 0M9 15.8c1.9-1.8 4.1-1.8 6 0" stroke-linecap="round"/><circle cx="12" cy="19" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </span>
         <h3>Connect</h3>
-        <p>Wi-Fi, Netflix, and everything you need to get online.</p>
-        <span class="card-arrow">→</span>
+        <p>Wi-Fi, Netflix, and everything you need to get connected.</p>
       </a>
 
-      <a href="#your-stay" class="feature-card reveal">
-        <svg class="icon" viewBox="0 0 48 48" fill="none"><path d="M8 22 24 9l16 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 20v17h24V20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 37v-9h8v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <h3>Your Stay</h3>
-        <p>Location, sleeping arrangements, quiet hours, and house rules.</p>
-        <span class="card-arrow">→</span>
+      <a href="#house" class="cat-card">
+        <span class="cat-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 11.5 12 4l9 7.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 10v9a1 1 0 0 0 1 1H10v-5.5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1V20h3.5a1 1 0 0 0 1-1v-9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <h3>House</h3>
+        <p>House rules, quiet hours, amenities, and important info.</p>
       </a>
 
-      <a href="#kitchen" class="feature-card reveal">
-        <svg class="icon" viewBox="0 0 48 48" fill="none"><path d="M14 8v14M14 8c-2.5 0-4.5 2.5-4.5 7s2 7 4.5 7M14 8c2.5 0 4.5 2.5 4.5 7s-2 7-4.5 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M14 22v18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M34 8v13a4 4 0 0 1-4 4v0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M34 8v32M30 8v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        <h3>Kitchen</h3>
-        <p>Microwave, fridge, rice cooker, and electric kettle.</p>
-        <span class="card-arrow">→</span>
+      <a href="#fuel" class="cat-card">
+        <span class="cat-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3v7a2.5 2.5 0 0 0 5 0V3M8.5 3v7M6 10v11M17 3c-1.5 1.5-2 3-2 5s1 3 1 5v8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <h3>Fuel</h3>
+        <p>Kitchen, bathroom, laundry, and everything to feel at home.</p>
       </a>
 
-      <a href="#bathroom" class="feature-card reveal">
-        <svg class="icon" viewBox="0 0 48 48" fill="none"><path d="M24 6c-5 6-8 11-8 15a8 8 0 0 0 16 0c0-4-3-9-8-15Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M20 24c0 2.2 1.8 4 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M11 40h26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        <h3>Bathroom</h3>
-        <p>Bidet, shampoo, body wash, and hand wash.</p>
-        <span class="card-arrow">→</span>
+      <a href="#eat" class="cat-card">
+        <span class="cat-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <h3>Eat</h3>
+        <p>Local food favorites, coffee spots, and late-night cravings.</p>
       </a>
 
-      <a href="#explore" class="feature-card reveal">
-        <svg class="icon" viewBox="0 0 48 48" fill="none"><path d="M24 6c-7 0-12 5.2-12 12.5C12 27 24 42 24 42s12-15 12-23.5C36 11.2 31 6 24 6Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="24" cy="18.5" r="4.5" stroke="currentColor" stroke-width="2"/></svg>
+      <a href="#explore" class="cat-card">
+        <span class="cat-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.3"/></svg>
+        </span>
         <h3>Explore</h3>
-        <p>Places to visit and hidden gems around Davao.</p>
-        <span class="card-arrow">→</span>
+        <p>Places to visit, things to do, and hidden gems around Davao.</p>
       </a>
 
-      <a href="#emergency" class="feature-card reveal">
-        <svg class="icon" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="24" r="7" stroke="currentColor" stroke-width="2"/><path d="M13 13l6.5 6.5M35 13l-6.5 6.5M13 35l6.5-6.5M35 35l-6.5-6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <a href="#help" class="cat-card">
+        <span class="cat-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9.2"/><circle cx="12" cy="12" r="3.6"/><path d="M5.1 5.1l3.6 3.6M18.9 5.1l-3.6 3.6M5.1 18.9l3.6-3.6M18.9 18.9l-3.6-3.6" stroke-linecap="round"/></svg>
+        </span>
         <h3>Help</h3>
-        <p>Emergency contacts, host info, and building security.</p>
-        <span class="card-arrow">→</span>
+        <p>Emergency contacts, host info, and building details.</p>
+      </a>
+
+      <a href="#checkout" class="cat-card cat-card--wide">
+        <span class="cat-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="8" width="16" height="12" rx="1.5"/><path d="M9 8V6a3 3 0 0 1 6 0v2" stroke-linecap="round"/></svg>
+        </span>
+        <div>
+          <h3>Check Out</h3>
+          <p>Checkout time, reminders, and a simple checklist.</p>
+        </div>
+        <span class="cat-card__arrow" aria-hidden="true">→</span>
       </a>
 
     </div>
@@ -127,396 +179,420 @@
 
   <!-- ============ CONNECT ============ -->
   <section class="section" id="connect">
-    <div class="section-head reveal">
-      <p class="eyebrow">01 — Get online</p>
-      <h2>Connect</h2>
+    <div class="section-head">
+      <p class="eyebrow">01 — Connect</p>
+      <h2>Get Connected</h2>
     </div>
 
-    <div class="panel-grid reveal">
-      <div class="panel panel-wide">
+    <div class="info-grid">
+      <div class="info-card">
+        <span class="info-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8.5c5.5-5.3 14.5-5.3 20 0M5.5 12.2c3.7-3.6 9.3-3.6 13 0M9 15.8c1.9-1.8 4.1-1.8 6 0" stroke-linecap="round"/><circle cx="12" cy="19" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </span>
         <h3>Wi-Fi</h3>
-        <p class="muted">Please refer to the framed A4 Guest Guide inside the unit for:</p>
-        <ul class="dot-list">
-          <li>Wi-Fi SSID</li>
-          <li>Wi-Fi Password</li>
-        </ul>
+        <p>Your Wi-Fi SSID and password are available on the framed A4 physical guest guide inside Faya Place.</p>
       </div>
 
-      <div class="panel">
-        <h3>Netflix</h3>
-        <ol class="step-list">
-          <li>Open Netflix</li>
-          <li>Select Guest Profile</li>
-          <li>Please sign out before checkout</li>
-        </ol>
-      </div>
-
-      <div class="panel">
-        <h3>Smart TV</h3>
-        <p class="muted">The Smart TV comes preloaded with streaming apps. Use the home button on the remote to browse everything available, and select your input if you'd like to connect your own device.</p>
-      </div>
-
-      <div class="panel panel-wide host-panel">
-        <h3>Your Hosts</h3>
-        <div class="host-row">
-          <div class="host">
-            <span class="host-name">Mark</span>
-          </div>
-          <div class="host">
-            <span class="host-name">Rina</span>
-          </div>
-          <a href="tel:" class="host-phone">
-            <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M6.5 3h3l1.5 4.5-2.2 1.8a13 13 0 0 0 6 6l1.8-2.2L21 15v3a2 2 0 0 1-2 2C10.7 20 4 13.3 4 5a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-            <span>[Add phone number]</span>
-          </a>
-        </div>
+      <div class="info-card">
+        <span class="info-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="4.5" width="19" height="13" rx="1.5"/><path d="M8 21h8M12 17.5V21" stroke-linecap="round"/></svg>
+        </span>
+        <h3>TV &amp; Streaming</h3>
+        <p>The TV is ready to use with the remote provided. If a streaming app is already signed in, simply select it from the home screen — please don't log out of any existing accounts.</p>
       </div>
     </div>
   </section>
 
-  <!-- ============ YOUR STAY ============ -->
-  <section class="section alt" id="your-stay">
-    <div class="section-head reveal">
-      <p class="eyebrow">02 — Make yourself at home</p>
-      <h2>Your Stay</h2>
+  <!-- ============ HOUSE ============ -->
+  <section class="section section--tint" id="house">
+    <div class="section-head">
+      <p class="eyebrow">02 — House</p>
+      <h2>Welcome Home.</h2>
     </div>
 
-    <div class="panel-grid reveal">
-      <div class="panel panel-wide">
-        <h3>Location</h3>
-        <p class="address">
-          Faya Place<br>
-          Amani Grand Condominium<br>
-          Building B (Yellow Building)<br>
-          Unit 825, 8th Floor<br>
-          Davao City, Philippines
-        </p>
-        <a href="https://maps.google.com/?q=Amani+Grand+Condominium+Davao" target="_blank" rel="noopener" class="btn btn-ghost btn-small">Open in Google Maps</a>
-      </div>
-
-      <div class="panel">
-        <h3>Sleeping Arrangement</h3>
-        <ul class="dot-list">
-          <li>1 Queen Bed</li>
-          <li>1 Sofa Bed</li>
+    <div class="info-grid">
+      <div class="info-card">
+        <span class="info-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M7 7V5.5A2.5 2.5 0 0 1 9.5 3h5A2.5 2.5 0 0 1 17 5.5V7" stroke-linecap="round"/></svg>
+        </span>
+        <h3>Accommodation</h3>
+        <ul class="plain-list">
+          <li>1 Queen bed</li>
+          <li>1 Sofa bed</li>
+          <li>Comfortable for 2 guests</li>
+          <li>Maximum of 4 guests</li>
         </ul>
       </div>
 
-      <div class="panel">
-        <h3>Occupancy</h3>
-        <div class="stat-row">
-          <div><span class="stat-num">2</span><span class="stat-label">Ideal for</span></div>
-          <div><span class="stat-num">3</span><span class="stat-label">Comfortable</span></div>
-          <div><span class="stat-num">4</span><span class="stat-label">Maximum</span></div>
-        </div>
-      </div>
-
-      <div class="panel">
-        <h3>Self Check-in</h3>
-        <p class="muted">Guests will receive the key safe combination through a private message before arrival.</p>
-      </div>
-
-      <div class="panel">
+      <div class="info-card">
+        <span class="info-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
         <h3>Quiet Hours</h3>
-        <p class="quiet-hours">10:00 PM – 7:00 AM</p>
-        <p class="muted">Please respect other residents of the condominium.</p>
+        <p>10:00 PM – 7:00 AM</p>
       </div>
 
-      <div class="panel panel-wide">
-        <h3>House Rules</h3>
-        <ul class="rule-list">
-          <li>No smoking</li>
-          <li>No parties</li>
-          <li>No excessive noise</li>
-          <li>Please treat the home with care</li>
-          <li>Turn off lights and air conditioning when leaving</li>
+      <div class="info-card">
+        <span class="info-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="10" width="16" height="10" rx="1.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke-linecap="round"/><circle cx="12" cy="15" r="1.3" fill="currentColor" stroke="none"/></svg>
+        </span>
+        <h3>Keys</h3>
+        <p>Faya Place uses a key safe. The combination will be sent to you privately by your host.</p>
+      </div>
+    </div>
+
+    <div class="subhead">
+      <h3>House Etiquette</h3>
+    </div>
+    <ul class="check-list">
+      <li>Keep noise low during quiet hours.</li>
+      <li>Treat the space with care.</li>
+      <li>Keep shared and common areas clean.</li>
+      <li>Follow building rules.</li>
+      <li>Observe Davao City's smoking regulations.</li>
+    </ul>
+
+    <div class="callout" id="smoke-free">
+      <p class="eyebrow">Good to Know</p>
+      <p>One of the things that makes Davao special is how seriously the city takes clean, smoke-free public spaces. Davao has enforced smoke-free policies for many years, helping protect residents, visitors, children and workers from secondhand smoke — and keeping shared spaces healthier and more comfortable for everyone.</p>
+      <p><strong>Please observe Davao City's no-smoking rules throughout the property and in designated public areas.</strong></p>
+    </div>
+  </section>
+
+  <!-- ============ FUEL ============ -->
+  <section class="section" id="fuel">
+    <div class="section-head">
+      <p class="eyebrow">03 — Fuel</p>
+      <h2>Kitchen &amp; Bathroom</h2>
+    </div>
+
+    <div class="amenity-grid">
+      <div class="amenity-card">
+        <h3>Kitchen</h3>
+        <ul class="plain-list plain-list--cols">
+          <li>Refrigerator</li>
+          <li>Microwave</li>
+          <li>Electric stove</li>
+          <li>Rice cooker</li>
+          <li>Water boiler</li>
+          <li>Cooking pan</li>
+          <li>Chopping board</li>
+          <li>Can opener</li>
+          <li>Salt &amp; pepper</li>
+          <li>Mugs</li>
+          <li>Bowls</li>
+          <li>Plates</li>
+          <li>Knife set</li>
+          <li>Flatware</li>
+          <li>Dish rack</li>
+          <li>Kitchen soap</li>
+        </ul>
+      </div>
+
+      <div class="amenity-card">
+        <h3>Bathroom</h3>
+        <ul class="plain-list plain-list--cols">
+          <li>Shower</li>
+          <li>Toilet</li>
+          <li>Bidet</li>
+          <li>Bathroom mirror</li>
+          <li>Shampoo &amp; body wash</li>
+          <li>Towels</li>
+        </ul>
+      </div>
+
+      <div class="amenity-card">
+        <h3>Living &amp; Bedroom</h3>
+        <ul class="plain-list plain-list--cols">
+          <li>Queen bed</li>
+          <li>Sofa bed</li>
+          <li>TV &amp; remote</li>
+          <li>Dining table &amp; chairs</li>
+          <li>Lounge chair</li>
+          <li>Tower fan</li>
+          <li>Air conditioning</li>
+          <li>Plants</li>
+          <li>Coffee table</li>
+          <li>TV console</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- ============ KITCHEN ============ -->
-  <section class="section" id="kitchen">
-    <div class="section-head reveal">
-      <p class="eyebrow">03 — Fuel up</p>
-      <h2>Kitchen</h2>
+  <!-- ============ EAT ============ -->
+  <section class="section section--tint" id="eat">
+    <div class="section-head">
+      <p class="eyebrow">04 — Eat</p>
+      <h2>Davao, By Taste</h2>
     </div>
-    <div class="amenity-grid reveal">
-      <div class="amenity-card">
-        <svg class="icon" viewBox="0 0 48 48" fill="none"><rect x="7" y="12" width="34" height="24" rx="3" stroke="currentColor" stroke-width="2"/><rect x="12" y="17" width="18" height="14" rx="1.5" stroke="currentColor" stroke-width="2"/><circle cx="35" cy="24" r="1.6" fill="currentColor"/></svg>
-        <h3>Microwave</h3>
-        <p>Ready to reheat leftovers or warm up a late-night snack.</p>
-      </div>
-      <div class="amenity-card">
-        <svg class="icon" viewBox="0 0 48 48" fill="none"><rect x="12" y="6" width="24" height="36" rx="3" stroke="currentColor" stroke-width="2"/><path d="M12 20h24" stroke="currentColor" stroke-width="2"/><path d="M17 10v6M17 24v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        <h3>Refrigerator</h3>
-        <p>Keep your groceries and leftovers fresh throughout your stay.</p>
-      </div>
-      <div class="amenity-card">
-        <svg class="icon" viewBox="0 0 48 48" fill="none"><rect x="10" y="18" width="28" height="20" rx="3" stroke="currentColor" stroke-width="2"/><path d="M15 18v-3a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="28" r="1.6" fill="currentColor"/></svg>
-        <h3>Rice Cooker</h3>
-        <p>A fresh pot of rice, ready whenever you need it.</p>
-      </div>
-      <div class="amenity-card">
-        <svg class="icon" viewBox="0 0 48 48" fill="none"><path d="M14 20h16a4 4 0 0 1 4 4v6a8 8 0 0 1-8 8h-8a4 4 0 0 1-4-4V20Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M34 24h2a3 3 0 0 1 0 6h-2" stroke="currentColor" stroke-width="2"/><path d="M19 20c0-3 3-3 3-6M25 20c0-3 3-3 3-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        <h3>Electric Kettle</h3>
-        <p>For your morning coffee or evening tea.</p>
-      </div>
-    </div>
-  </section>
 
-  <!-- ============ BATHROOM ============ -->
-  <section class="section alt" id="bathroom">
-    <div class="section-head reveal">
-      <p class="eyebrow">04 — Freshen up</p>
-      <h2>Bathroom</h2>
-    </div>
-    <div class="amenity-grid reveal">
-      <div class="amenity-card">
-        <svg class="icon" viewBox="0 0 48 48" fill="none"><path d="M9 27h30v3a10 10 0 0 1-10 10h-10A10 10 0 0 1 9 30v-3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 27v-4a10 10 0 0 1 20 0v4" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="8" r="2" stroke="currentColor" stroke-width="2"/></svg>
-        <h3>Bidet</h3>
-        <p>Installed for a clean, comfortable finish.</p>
-      </div>
-      <div class="amenity-card">
-        <svg class="icon" viewBox="0 0 48 48" fill="none"><path d="M19 8h10l1 5c3 2 4 5 4 9v14a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4V22c0-4 1-7 4-9l1-5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M19 8V5h10v3" stroke="currentColor" stroke-width="2"/></svg>
-        <h3>Shampoo</h3>
-        <p>Provided in the unit for your convenience.</p>
-      </div>
-      <div class="amenity-card">
-        <svg class="icon" viewBox="0 0 48 48" fill="none"><path d="M20 8h8l1 5c3 2 4 5 4 9v14a4 4 0 0 1-4 4H19a4 4 0 0 1-4-4V22c0-4 1-7 4-9l1-5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="24" cy="26" r="3" stroke="currentColor" stroke-width="2"/></svg>
-        <h3>Body Wash</h3>
-        <p>A gentle formula, stocked and ready to use.</p>
-      </div>
-      <div class="amenity-card">
-        <svg class="icon" viewBox="0 0 48 48" fill="none"><path d="M17 6h9a5 5 0 0 1 5 5v3H17V6Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 14h17l-2 26a3 3 0 0 1-3 3H19a3 3 0 0 1-3-3l-2-26Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-        <h3>Hand Wash</h3>
-        <p>At the sink, refilled between every stay.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ EXPLORE DAVAO ============ -->
-  <section class="section" id="explore">
-    <div class="section-head reveal">
-      <p class="eyebrow">05 — Go outside</p>
-      <h2>Explore Davao</h2>
-    </div>
-    <div class="place-grid reveal">
-
-      <div class="place-card">
-        <div class="place-photo ph-1">
-          <img src="assets/amani-grand-citygate-davao3.jpg">
-        </div>
-        <div class="place-body">
-          <h3>Faya Place</h3>
-          <p>Home base — Amani Grand Condominium, Building B.</p>
-          <a href="https://maps.google.com/?q=Amani+Grand+Condominium+Davao" target="_blank" rel="noopener" class="place-link">Google Maps →</a>
-        </div>
-      </div>
-
-      <div class="place-card">
-        <div class="place-photo ph-2">
-          <img src="assets/airport.png">
-        </div>
-        <div class="place-body">
-          <h3>Davao International Airport</h3>
-          <p>Approximately 10–15 minutes away.</p>
-          <a href="https://maps.google.com/?q=Francisco+Bangoy+International+Airport" target="_blank" rel="noopener" class="place-link">Google Maps →</a>
-        </div>
-      </div>
-
-      <div class="place-card">
-        <div class="place-photo ph-3">
-          <img src="assets/SM-Lanang-Premier.jpg">
-        </div>
-        <div class="place-body">
-          <h3>SM Lanang Premier</h3>
-          <p>A premier mall with shopping, dining, and a cinema.</p>
-          <a href="https://maps.google.com/?q=SM+Lanang+Premier" target="_blank" rel="noopener" class="place-link">Google Maps →</a>
-        </div>
-      </div>
-
-      <div class="place-card">
-        <div class="place-photo ph-4">
-          <img src="assets/abreeza-mall.jpg">
-        </div>
-        <div class="place-body">
-          <h3>Abreeza Mall</h3>
-          <p>Open-air mall with a wide mix of shops and restaurants.</p>
-          <a href="https://maps.google.com/?q=Abreeza+Mall+Davao" target="_blank" rel="noopener" class="place-link">Google Maps →</a>
-        </div>
-      </div>
-
-      <div class="place-card">
-        <div class="place-photo ph-5">
-          <img src="assets/gaisano-mall.jpg">
-        </div>
-        <div class="place-body">
-          <h3>Gaisano Mall of Davao</h3>
-          <p>A local favorite for everyday shopping and food.</p>
-          <a href="https://maps.google.com/?q=Gaisano+Mall+of+Davao" target="_blank" rel="noopener" class="place-link">Google Maps →</a>
-        </div>
-      </div>
-
-      <div class="place-card">
-        <div class="place-photo ph-6">
-          <img src="assets/dgt-davao.jpg">
-        </div>
-        <div class="place-body">
-          <h3>DGT Davao</h3>
-          <p>Worth a visit while you're in the city.</p>
-          <a href="https://maps.google.com/?q=DGT+Davao" target="_blank" rel="noopener" class="place-link">Google Maps →</a>
-        </div>
-      </div>
-
-      <div class="place-card">
-        <div class="place-photo ph-7">
-          <img src="assets/feral-studios.jpg">
-        </div>
-        <div class="place-body">
-          <h3>Feral Studios</h3>
-          <p>Home of Faya Clothing Co.</p>
-          <a href="https://maps.google.com/?q=Feral+Studios+Davao" target="_blank" rel="noopener" class="place-link">Google Maps →</a>
-        </div>
-      </div>
-
-      <div class="place-card">
-        <div class="place-photo ph-8">
-          <img src="assets/samal-island.jpg">
-        </div>
-        <div class="place-body">
-          <h3>Samal Island</h3>
-          <p>White-sand beaches, a short ferry ride from the city.</p>
-          <a href="https://maps.google.com/?q=Samal+Island" target="_blank" rel="noopener" class="place-link">Google Maps →</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============ FOOD NEARBY ============ -->
-  <section class="section alt" id="food">
-    <div class="section-head reveal">
-      <p class="eyebrow">06 — Eat well</p>
-      <h2>Food Nearby</h2>
-    </div>
-    <div class="food-grid reveal">
-
+    <div class="food-grid">
       <div class="food-card">
-        <h3>Breakfast</h3>
-        <p>Cafés and diners near the condo to start your day right.</p>
-        <a href="https://maps.google.com/?q=breakfast+near+Amani+Grand+Condominium+Davao" target="_blank" rel="noopener" class="place-link">Find nearby →</a>
+        <h3>Filipino</h3>
+        <p class="muted">Local favorites, coming soon.</p>
       </div>
-
+      <div class="food-card">
+        <h3>Local Favorites</h3>
+        <p class="muted">Host picks, coming soon.</p>
+      </div>
       <div class="food-card">
         <h3>Coffee</h3>
-        <p>Coffee shops within easy walking distance.</p>
-        <a href="https://maps.google.com/?q=coffee+shops+near+Amani+Grand+Condominium+Davao" target="_blank" rel="noopener" class="place-link">Find nearby →</a>
+        <p class="muted">Nearby coffee spots, coming soon.</p>
       </div>
-
       <div class="food-card">
-        <h3>Local Food</h3>
-        <p>Authentic Davaoeño dishes worth seeking out.</p>
-        <a href="https://maps.google.com/?q=local+Filipino+restaurants+near+Amani+Grand+Condominium+Davao" target="_blank" rel="noopener" class="place-link">Find nearby →</a>
+        <h3>Breakfast</h3>
+        <p class="muted">Morning spots, coming soon.</p>
       </div>
-
       <div class="food-card">
-        <h3>Dinner</h3>
-        <p>Sit-down spots for a proper evening meal.</p>
-        <a href="https://maps.google.com/?q=dinner+restaurants+near+Amani+Grand+Condominium+Davao" target="_blank" rel="noopener" class="place-link">Find nearby →</a>
+        <h3>Late-Night</h3>
+        <p class="muted">For the late cravings, coming soon.</p>
       </div>
-
       <div class="food-card">
-        <h3>Grab Delivery</h3>
-        <p>Prefer to stay in? Order through the Grab app.</p>
-        <a href="https://maps.google.com/?q=restaurants+near+Amani+Grand+Condominium+Davao" target="_blank" rel="noopener" class="place-link">Find nearby →</a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============ EMERGENCY ============ -->
-  <section class="section emergency" id="emergency">
-    <div class="section-head reveal">
-      <p class="eyebrow">07 — Just in case</p>
-      <h2>Emergency</h2>
-    </div>
-
-    <div class="emergency-hero reveal">
-      <span class="emergency-number">911</span>
-      <p>911 is the official emergency response number within Davao City.</p>
-    </div>
-
-    <div class="panel-grid reveal">
-      <div class="panel">
-        <h3>Building Security</h3>
-        <a href="tel:" class="host-phone"><span>[Add phone number]</span></a>
-      </div>
-      <div class="panel">
-        <h3>Hosts — Mark &amp; Rina</h3>
-        <a href="tel:" class="host-phone"><span>[Add phone number]</span></a>
-      </div>
-      <div class="panel">
-        <h3>Nearest Hospital</h3>
-        <a href="https://maps.google.com/?q=hospital+near+Amani+Grand+Condominium+Davao" target="_blank" rel="noopener" class="btn btn-ghost btn-small">Open in Google Maps</a>
-      </div>
-      <div class="panel">
-        <h3>Nearest Pharmacy</h3>
-        <a href="https://maps.google.com/?q=pharmacy+near+Amani+Grand+Condominium+Davao" target="_blank" rel="noopener" class="btn btn-ghost btn-small">Open in Google Maps</a>
+        <h3>Vegan-Friendly</h3>
+        <p class="muted">Plant-based options, coming soon.</p>
       </div>
     </div>
   </section>
 
-  <!-- ============ SMOKE-FREE DAVAO ============ -->
-  <section class="section smokefree" id="smokefree">
-    <div class="smokefree-inner reveal">
-      <p class="eyebrow">Good to know</p>
-      <h2>Smoke-Free Davao</h2>
-      <p>Davao City is known nationwide for the strict implementation of its smoke-free ordinance. Smoking is prohibited in public places, including malls, restaurants, transport terminals, and common areas of residential buildings.</p>
-      <p>This is part of what keeps the city's air clean and its public spaces comfortable for everyone. We appreciate your understanding and cooperation during your stay.</p>
+  <!-- ============ EXPLORE ============ -->
+  <section class="section" id="explore">
+    <div class="section-head">
+      <p class="eyebrow">05 — Explore</p>
+      <h2>Around Davao</h2>
+    </div>
+
+    <div class="subhead"><h3>Nearby</h3></div>
+    <div class="place-grid">
+      <a class="place-card" href="https://www.google.com/maps/search/?api=1&query=DGT+Davao" target="_blank" rel="noopener">
+        <img src="assets/dgt-davao.jpg" alt="DGT Davao" loading="lazy">
+        <div class="place-card__body"><h4>DGT Davao</h4></div>
+      </a>
+      <a class="place-card" href="https://www.google.com/maps/search/?api=1&query=Feral+Studios+Davao" target="_blank" rel="noopener">
+        <img src="assets/feral-studios.jpg" alt="Feral Studios" loading="lazy">
+        <div class="place-card__body"><h4>Feral Studios</h4><p class="muted">Faya Clothing Co. shirts on display</p></div>
+      </a>
+    </div>
+
+    <div class="subhead"><h3>Shopping</h3></div>
+    <div class="place-grid">
+      <a class="place-card" href="https://www.google.com/maps/search/?api=1&query=Abreeza+Mall+Davao" target="_blank" rel="noopener">
+        <img src="assets/abreeza-mall.jpg" alt="Abreeza Mall" loading="lazy">
+        <div class="place-card__body"><h4>Abreeza Mall</h4></div>
+      </a>
+      <a class="place-card" href="https://www.google.com/maps/search/?api=1&query=Gaisano+Mall+Davao" target="_blank" rel="noopener">
+        <img src="assets/gaisano-mall.jpg" alt="Gaisano Mall" loading="lazy">
+        <div class="place-card__body"><h4>Gaisano Mall</h4></div>
+      </a>
+      <a class="place-card" href="https://www.google.com/maps/search/?api=1&query=SM+Lanang+Premier+Davao" target="_blank" rel="noopener">
+        <img src="assets/sm-lanang.jpg" alt="SM Lanang Premier" loading="lazy">
+        <div class="place-card__body"><h4>SM Lanang Premier</h4></div>
+      </a>
+    </div>
+
+    <div class="subhead"><h3>Beaches &amp; Nature</h3></div>
+    <div class="place-grid">
+      <a class="place-card" href="https://www.google.com/maps/search/?api=1&query=Samal+Island+Davao" target="_blank" rel="noopener">
+        <img src="assets/samal-island.jpg" alt="Samal Island" loading="lazy">
+        <div class="place-card__body"><h4>Samal Island</h4></div>
+      </a>
     </div>
   </section>
 
-  <!-- ============ CHECKOUT ============ -->
-  <section class="section" id="checkout">
-    <div class="section-head reveal">
-      <p class="eyebrow">08 — Before you go</p>
-      <h2>Checkout</h2>
+  <!-- ============ GET HERE / MAP ============ -->
+  <section class="section section--tint" id="location">
+    <div class="section-head">
+      <p class="eyebrow">Get Here</p>
+      <h2>Location</h2>
+    </div>
+    <div class="map-block">
+      <img src="assets/amani-grand.jpg" alt="Amani Grand Citygate" class="map-block__img" loading="lazy">
+      <div class="map-block__body">
+        <p class="eyebrow">Amani Grand Citygate</p>
+        <p>Milan, Buhangin<br>Davao City, Philippines</p>
+        <p class="muted">Approximately 10–15 minutes from Davao International Airport, depending on traffic.</p>
+        <a class="btn btn--dark" href="https://www.google.com/maps/search/?api=1&query=Amani+Grand+Citygate+Davao+City" target="_blank" rel="noopener">Open in Google Maps <span aria-hidden="true">→</span></a>
+        <p class="fine-print">Unit details are shared privately with confirmed guests: Building B — Yellow Building, Unit 825, 8th Floor.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HELP ============ -->
+  <section class="section" id="help">
+    <div class="section-head">
+      <p class="eyebrow">06 — Help</p>
+      <h2>We've Got You</h2>
     </div>
 
-    <div class="checklist-wrap reveal">
-      <ul class="checklist" id="checklist">
-        <li><label><input type="checkbox"><span class="box"></span><span class="label-text">Turn off lights</span></label></li>
-        <li><label><input type="checkbox"><span class="box"></span><span class="label-text">Turn off air conditioning</span></label></li>
-        <li><label><input type="checkbox"><span class="box"></span><span class="label-text">Dispose of trash properly</span></label></li>
-        <li><label><input type="checkbox"><span class="box"></span><span class="label-text">Return the keys to the key safe</span></label></li>
-        <li><label><input type="checkbox"><span class="box"></span><span class="label-text">Lock the door</span></label></li>
-        <li><label><input type="checkbox"><span class="box"></span><span class="label-text">Double-check personal belongings</span></label></li>
-        <li><label><input type="checkbox"><span class="box"></span><span class="label-text">Leave us a review</span></label></li>
-      </ul>
-      <div class="checklist-progress">
-        <div class="checklist-progress-bar" id="checklistBar"></div>
+    <div class="info-grid">
+      <div class="info-card info-card--emergency">
+        <span class="info-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9.2"/><circle cx="12" cy="12" r="3.6"/><path d="M5.1 5.1l3.6 3.6M18.9 5.1l-3.6 3.6M5.1 18.9l3.6-3.6M18.9 18.9l-3.6-3.6" stroke-linecap="round"/></svg>
+        </span>
+        <h3>Emergency</h3>
+        <p class="big-number">911</p>
+        <p class="muted">911 is Davao City's emergency response service.</p>
+      </div>
+
+      <div class="info-card">
+        <span class="info-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="3.4"/><path d="M4.5 20c1.5-4 4-6 7.5-6s6 2 7.5 6" stroke-linecap="round"/></svg>
+        </span>
+        <h3>Hosts</h3>
+        <p>Rina &amp; Mark</p>
+        <p class="muted">Mobile: [HOST MOBILE NUMBER]</p>
+      </div>
+
+      <div class="info-card">
+        <span class="info-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 11.5 12 4l9 7.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 10v9a1 1 0 0 0 1 1H10v-5.5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1V20h3.5a1 1 0 0 0 1-1v-9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <h3>Building</h3>
+        <p>Amani Grand Citygate<br>Building B — Yellow Building<br>Unit 825 — 8th Floor</p>
+        <p class="muted">Building / security contact: [PLACEHOLDER]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CHECK OUT ============ -->
+  <section class="section section--tint" id="checkout">
+    <div class="section-head">
+      <p class="eyebrow">Before You Go</p>
+      <h2>Check Out</h2>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>Checkout Time</h3>
+        <p class="muted">[CHECKOUT TIME]</p>
+      </div>
+      <div class="info-card">
+        <h3>Keys</h3>
+        <p class="muted">[KEY RETURN INSTRUCTIONS]</p>
       </div>
     </div>
 
-    <div class="checkout-message reveal">
-      <p>Thank you for staying at Faya Place.</p>
-      <p>We hope to welcome you back again soon.</p>
-      <p class="safe-travels">Safe travels.</p>
+    <div class="subhead"><h3>Before You Leave</h3></div>
+    <ul class="check-list">
+      <li>Take out the trash.</li>
+      <li>Wash and put away any used dishes.</li>
+      <li>Turn off all appliances.</li>
+      <li>Turn off lights and air-conditioning.</li>
+      <li>Take a final look around the room.</li>
+    </ul>
+  </section>
+
+  <!-- ============ GUEST CHECKLIST ============ -->
+  <section class="section" id="checklist">
+    <div class="section-head">
+      <p class="eyebrow">Faya Place</p>
+      <h2>Guest Checklist</h2>
+      <p class="section-intro">A little checklist to help us keep Faya Place complete, clean, and welcoming for every guest. We kindly ask that you take a quick look around and let us know if anything seems missing or damaged. Thank you for helping us take care of the space as your home away from home. 🤍</p>
     </div>
+
+    <div class="checklist" id="checklistRoot">
+
+      <details class="checklist__group" open>
+        <summary>Living / Bedroom <span class="checklist__count" data-count></span></summary>
+        <div class="checklist__items" data-group="living">
+          <label class="checklist__item"><input type="checkbox" data-item="living-sofa"><span>Sofa bed</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="living-bed"><span>Bed &amp; mattress</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="living-bedside-tables"><span>2× Bedside tables</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="living-bedside-plants"><span>2× Bedside plants</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="living-tv"><span>TV &amp; remote</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="living-tv-console"><span>TV console</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="living-dining"><span>Dining table &amp; chairs</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="living-lounge"><span>Lounge chair</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="living-desk-lamps"><span>2× Desk lamps</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="living-potted-plants"><span>2× Small green potted plants</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="living-mirror"><span>Wall mirror</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="living-frames"><span>2× Picture frames</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="living-cushions"><span>9× Small cushions</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="living-pillows"><span>2× Pillows</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="living-fan"><span>Tower fan</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="living-film-camera"><span>Film camera</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="living-deco-camera"><span>Decorative camera</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="living-skull-vase"><span>Skull mini vase</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="living-tissue"><span>Tissue box</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="living-coffee-table"><span>Coffee table</span></label>
+        </div>
+      </details>
+
+      <details class="checklist__group">
+        <summary>Kitchen / Dining <span class="checklist__count" data-count></span></summary>
+        <div class="checklist__items" data-group="kitchen">
+          <label class="checklist__item"><input type="checkbox" data-item="kitchen-fridge"><span>Refrigerator</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="kitchen-microwave"><span>Microwave</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="kitchen-stove"><span>Electric stove</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="kitchen-rice-cooker"><span>Rice cooker</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="kitchen-water-boiler"><span>Water boiler</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="kitchen-pan"><span>Cooking pan</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="kitchen-chopping-board"><span>Chopping board</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="kitchen-can-opener"><span>Can opener</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="kitchen-salt-pepper"><span>2× Salt &amp; pepper shakers</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="kitchen-mugs"><span>5× Mugs</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="kitchen-small-bowls"><span>4× Small bowls</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="kitchen-big-bowl"><span>Big bowl</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="kitchen-plates"><span>4× Plates</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="kitchen-knife-set"><span>Knife set</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="kitchen-flatware-set"><span>Flatware set</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="kitchen-flatware-tray"><span>Flatware tray</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="kitchen-dish-rack"><span>Dish rack</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="kitchen-sponge-holder"><span>Sponge holder</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="kitchen-soap"><span>Kitchen soap dispenser</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="kitchen-fridge-rack"><span>Refrigerator rack</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="kitchen-bins"><span>2× Waste bins</span></label>
+        </div>
+      </details>
+
+      <details class="checklist__group">
+        <summary>Bathroom <span class="checklist__count" data-count></span></summary>
+        <div class="checklist__items" data-group="bathroom">
+          <label class="checklist__item"><input type="checkbox" data-item="bath-shower"><span>Shower enclosure</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="bath-toilet"><span>Toilet</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="bath-bidet"><span>Bidet sprayer</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="bath-brush"><span>Toilet brush</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="bath-mirror"><span>Toilet mirror</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="bath-set"><span>Bathroom set</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="bath-shampoo-hangers"><span>2× Shampoo bottle hangers</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="bath-towel-bar"><span>Towel bar</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="bath-broom-holder"><span>Broom holder</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="bath-squeegee"><span>Floor squeegee</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="bath-mop"><span>Wet/dry mop</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="bath-soap"><span>2× Bathroom soap/body wash dispensers</span></label>
+        </div>
+      </details>
+
+      <details class="checklist__group">
+        <summary>Entrance / Essentials <span class="checklist__count" data-count></span></summary>
+        <div class="checklist__items" data-group="entrance">
+          <label class="checklist__item"><input type="checkbox" data-item="ent-key-safe"><span>Key safe</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="ent-wifi-device"><span>Wi-Fi device</span></label>
+          <label class="checklist__item"><input type="checkbox" data-item="ent-power-strips"><span>Power strips / extension cords</span></label>
+        </div>
+      </details>
+
+    </div>
+
+    <p class="checklist__thanks">Thank you for helping us keep Faya Place beautiful for the next guest.<br><strong>WELCOME HOME. 🤍</strong></p>
+
+    <button class="btn btn--ghost" id="resetChecklist" type="button">Reset Checklist</button>
   </section>
 
   <!-- ============ FAYA CLOTHING CO. ============ -->
-  <section class="section clothing" id="faya-clothing">
-    <div class="clothing-inner reveal">
-      <img src="assets/faya-clothing-logo.png" alt="Faya Clothing Co." class="clothing-logo">
-      <p class="eyebrow">The story behind Faya Place</p>
-      <p class="clothing-copy">Faya Place is proudly created by the team behind Faya Clothing Co., an independent clothing brand based in Davao City.</p>
-      <div class="social-row">
-        <a href="https://www.facebook.com/fayaclothingco" target="_blank" rel="noopener">Facebook</a>
-        <a href="https://www.instagram.com/fayaclothingco" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.tiktok.com/@fayaclothingco" target="_blank" rel="noopener">TikTok</a>
-      </div>
+  <section class="section brand-section" id="faya-clothing">
+    <img src="assets/faya-clothing-logo.png" alt="Faya Clothing Co." class="brand-section__logo">
+    <p class="eyebrow">Like what you see?</p>
+    <p class="brand-section__text">Faya Clothing Co. is our clothing project — designed, printed and worn from Davao. Shirts are also available through Feral Studios.</p>
+    <div class="social-row">
+      <a href="https://www.facebook.com/fayaclothingco" target="_blank" rel="noopener" aria-label="Faya Clothing Co. on Facebook">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 8h-2a2 2 0 0 0-2 2v2H9v3h2v6h3v-6h2.2l.8-3H14v-1.5c0-.5.3-1 1-1h2V8Z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/fayaclothingco/" target="_blank" rel="noopener" aria-label="Faya Clothing Co. on Instagram">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.7"/><circle cx="17" cy="7" r="0.9" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@fayaclothingco" target="_blank" rel="noopener" aria-label="Faya Clothing Co. on TikTok">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3v10.7a3.3 3.3 0 1 1-2.6-3.23M15 3c.4 2.4 2.1 4 4.6 4.2"/></svg>
+      </a>
     </div>
   </section>
 
@@ -524,16 +600,20 @@
 
 <!-- ============ FOOTER ============ -->
 <footer class="footer">
-  <p class="footer-eyebrow">Designed with intention.</p>
-  <img src="assets/logo-black.png" alt="Faya Place" class="footer-logo">
-  <p class="footer-sub">By Faya Clothing Co.</p>
-  <div class="footer-links">
-    <a href="#connect">Connect</a>
-    <a href="#your-stay">Your Stay</a>
-    <a href="#explore">Explore</a>
-    <a href="#emergency">Emergency</a>
+  <p class="footer__line">DESIGNED WITH INTENTION.</p>
+  <img src="assets/logo-white.png" alt="Faya Place" class="footer__mark">
+  <p class="footer__by">BY FAYA CLOTHING CO.</p>
+  <div class="social-row social-row--footer">
+    <a href="https://www.facebook.com/fayaclothingco" target="_blank" rel="noopener" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 8h-2a2 2 0 0 0-2 2v2H9v3h2v6h3v-6h2.2l.8-3H14v-1.5c0-.5.3-1 1-1h2V8Z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/fayaclothingco/" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.7"/><circle cx="17" cy="7" r="0.9" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="https://www.tiktok.com/@fayaclothingco" target="_blank" rel="noopener" aria-label="TikTok">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3v10.7a3.3 3.3 0 1 1-2.6-3.23M15 3c.4 2.4 2.1 4 4.6 4.2"/></svg>
+    </a>
   </div>
-  <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
 </footer>
 
 <script src="script.js"></script>
