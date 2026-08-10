@@ -6,9 +6,6 @@
 <title>Faya Place — Digital Guest Guide</title>
 <meta name="description" content="Faya Place — a digital guest guide for your stay in Davao City. Stay Strange.">
 <link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,6 +19,7 @@
 
     <nav class="nav-desktop" aria-label="Primary">
       <a href="#connect">Connect</a>
+      <a href="#gallery">Gallery</a>
       <a href="#house">House</a>
       <a href="#fuel">Fuel</a>
       <a href="#eat">Eat</a>
@@ -38,6 +36,7 @@
 <!-- ============ MOBILE NAV DRAWER ============ -->
 <nav class="mobile-nav" id="mobileNav" aria-label="Mobile" hidden>
   <a href="#connect" data-nav>Connect</a>
+  <a href="#gallery" data-nav>Gallery</a>
   <a href="#house" data-nav>House</a>
   <a href="#fuel" data-nav>Fuel</a>
   <a href="#eat" data-nav>Eat</a>
@@ -73,25 +72,25 @@
     </div>
 
     <div class="gallery__scroller" id="galleryScroller">
-      <button class="gallery__slide" type="button" data-index="1">
+      <button class="gallery__slide" type="button" data-index="0">
         <img src="assets/gallery-01.jpg" alt="Faya Place gallery photo 1" loading="lazy" onerror="this.closest('.gallery__slide').classList.add('gallery__slide--empty')">
       </button>
-      <button class="gallery__slide" type="button" data-index="2">
+      <button class="gallery__slide" type="button" data-index="1">
         <img src="assets/gallery-02.jpg" alt="Faya Place gallery photo 2" loading="lazy" onerror="this.closest('.gallery__slide').classList.add('gallery__slide--empty')">
       </button>
-      <button class="gallery__slide" type="button" data-index="3">
+      <button class="gallery__slide" type="button" data-index="2">
         <img src="assets/gallery-03.jpg" alt="Faya Place gallery photo 3" loading="lazy" onerror="this.closest('.gallery__slide').classList.add('gallery__slide--empty')">
       </button>
-      <button class="gallery__slide" type="button" data-index="4">
+      <button class="gallery__slide" type="button" data-index="3">
         <img src="assets/gallery-04.jpg" alt="Faya Place gallery photo 4" loading="lazy" onerror="this.closest('.gallery__slide').classList.add('gallery__slide--empty')">
       </button>
-      <button class="gallery__slide" type="button" data-index="5">
+      <button class="gallery__slide" type="button" data-index="4">
         <img src="assets/gallery-05.jpg" alt="Faya Place gallery photo 5" loading="lazy" onerror="this.closest('.gallery__slide').classList.add('gallery__slide--empty')">
       </button>
-      <button class="gallery__slide" type="button" data-index="6">
+      <button class="gallery__slide" type="button" data-index="5">
         <img src="assets/gallery-06.jpg" alt="Faya Place gallery photo 6" loading="lazy" onerror="this.closest('.gallery__slide').classList.add('gallery__slide--empty')">
       </button>
-      <button class="gallery__slide" type="button" data-index="7">
+      <button class="gallery__slide" type="button" data-index="6">
         <img src="assets/gallery-07.jpg" alt="Faya Place gallery photo 7" loading="lazy" onerror="this.closest('.gallery__slide').classList.add('gallery__slide--empty')">
       </button>
     </div>
@@ -376,15 +375,15 @@
     <div class="subhead"><h3>Shopping</h3></div>
     <div class="place-grid">
       <a class="place-card" href="https://www.google.com/maps/search/?api=1&query=Abreeza+Mall+Davao" target="_blank" rel="noopener">
-        <img src="assets/abreeza mall.jpg" alt="Abreeza Mall" loading="lazy">
+        <img src="assets/abreeza%20mall.jpg" alt="Abreeza Mall" loading="lazy">
         <div class="place-card__body"><h4>Abreeza Mall</h4></div>
       </a>
       <a class="place-card" href="https://www.google.com/maps/search/?api=1&query=Gaisano+Mall+Davao" target="_blank" rel="noopener">
-        <img src="assets/gaisano mall.jpg" alt="Gaisano Mall" loading="lazy">
+        <img src="assets/gaisano%20mall.jpg" alt="Gaisano Mall" loading="lazy">
         <div class="place-card__body"><h4>Gaisano Mall</h4></div>
       </a>
       <a class="place-card" href="https://www.google.com/maps/search/?api=1&query=SM+Lanang+Premier+Davao" target="_blank" rel="noopener">
-        <img src="assets/SM Lanang Premier.jpg" alt="SM Lanang Premier" loading="lazy">
+        <img src="assets/SM%20Lanang%20Premier.jpg" alt="SM Lanang Premier" loading="lazy">
         <div class="place-card__body"><h4>SM Lanang Premier</h4></div>
       </a>
     </div>
@@ -392,7 +391,7 @@
     <div class="subhead"><h3>Beaches &amp; Nature</h3></div>
     <div class="place-grid">
       <a class="place-card" href="https://www.google.com/maps/search/?api=1&query=Samal+Island+Davao" target="_blank" rel="noopener">
-        <img src="assets/samal island.jpg" alt="Samal Island" loading="lazy">
+        <img src="assets/samal%20island.jpg" alt="Samal Island" loading="lazy">
         <div class="place-card__body"><h4>Samal Island</h4></div>
       </a>
     </div>
@@ -405,7 +404,7 @@
       <h2>Location</h2>
     </div>
     <div class="map-block">
-      <img src="assets/amani-grand.jpg" alt="Amani Grand Citygate" class="map-block__img" loading="lazy">
+      <img src="assets/amani-grand-citygate-davao3.jpg" alt="Amani Grand Citygate" class="map-block__img" loading="lazy">
       <div class="map-block__body">
         <p class="eyebrow">Amani Grand Citygate</p>
         <p>Milan, Buhangin<br>Davao City, Philippines</p>
@@ -439,7 +438,7 @@
         </span>
         <h3>Hosts</h3>
         <p>Rina &amp; Mark</p>
-        <p class="muted">Mobile: Contact details will be provided via private Airbnb message.</p>
+        <p class="muted">Need anything during your stay? Feel free to reach out to your host. Contact details will be provided via private Airbnb message. We're happy to help.</p>
       </div>
 
       <div class="info-card">
@@ -463,11 +462,11 @@
     <div class="info-grid">
       <div class="info-card">
         <h3>Checkout Time</h3>
-        <p class="muted">Kindly check out by 2:00 PM. Thank you!</p>
+        <p class="muted">[CHECKOUT TIME]</p>
       </div>
       <div class="info-card">
         <h3>Keys</h3>
-        <p class="muted">Return key → Close safe → Scramble numbers</p>
+        <p class="muted">Please return the key to the safe after use. Close the door and scramble the numbers. Thank you!</p>
       </div>
     </div>
 
