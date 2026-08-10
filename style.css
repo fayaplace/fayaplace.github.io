@@ -240,12 +240,12 @@ button{ font-family: inherit; cursor: pointer; }
 
 @media (max-width: 639px){
   .hero{
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
-    min-height: 100svh;
-    min-height: 100dvh;
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    align-items: flex-end;
   }
-  .hero__img{ object-position: center 22%; }
+  .hero__img{ object-position: center 26%; }
 }
 .hero__content{
   position: relative;
